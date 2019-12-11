@@ -1,0 +1,16 @@
+extends ./layout.pug
+block content
+    .row.justify-content-md-center
+        .col-sm-3
+            div.text-center
+                form.form-signin(method='post',enctype="multipart/form-data",action='/submitForm')
+                    img.mb-4(src='https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg', alt='', width='72', height='72')
+                    h1.h3.mb-3.font-weight-normal GCS - File uploader
+                    if msg === 1
+                        .alert.alert-success(role='success') File uploaded Successfully !!!   
+                    else if msg ===2
+                        .alert.alert-danger(role='danger') File uploading Failed !!! 
+                    label.sr-only(for='inputImg1') Select File
+                    input#inputImg1.form-control(type='file',name='selected_file', multiple="multiple", placeholder='select a valid file', required='', autofocus='')
+                    button.btn.btn-lg.btn-primary.btn-block(type='submit') Upload
+                    p.mt-5.mb-3.text-muted
